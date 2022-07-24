@@ -2,7 +2,7 @@
   <div>
   <my-header :cartItemCount="cartItemCount"></my-header>
   <main>
-    <div v-for="product in sortedProducts" v-bind:key="product">
+    <div v-for="product in sortedProducts" v-bind:key="product.id">
       <div class="row">
         <div class="col-md-5 col-md-offset-0">
           <figure>
@@ -87,26 +87,26 @@ export default {
         // eslint-disable-next-line no-inner-declarations
         function compare (a, b) {
           if (a.title.toLowerCase() < b.title.toLowerCase()) {
-            return -1
+            return -1;
           }
           if (a.title.toLowerCase() > b.title.toLowerCase()) {
-            return 1
+            return 1;
           }
-          return 0
+          return 0;
         }
-        return productsArray.sort(compare)
+        return productsArray.sort(compare);
       }
     }
   },
   filters: {
     formatPrice (price) {
       if (!parseInt(price)) {
-        return ''
+        return '';
       }
       if (price > 99999) {
-        var priceString = (price / 100).toFixed(2)
-        var priceArray = priceString.split('').reverse()
-        var index = 3
+        var priceString = (price / 100).toFixed(2);
+        var priceArray = priceString.split('').reverse();
+        var index = 3;
         while (priceArray.length > index + 3) {
           priceArray.splice(index + 3, 0, ',')
           index += 4

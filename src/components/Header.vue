@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <header>
       <div class="navbar navbar-default">
         <div class="navbar-header">
